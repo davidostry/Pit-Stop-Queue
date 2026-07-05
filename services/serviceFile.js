@@ -21,8 +21,8 @@ export async function writeFile(path) {
 
 export async function readFile(path) {
     const races = await fs.readFile(path, "utf-8")
-    // const res = JSON.parse(races)
-    return races
+    const res = JSON.parse(races)
+    return res
 }
 
 

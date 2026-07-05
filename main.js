@@ -12,6 +12,8 @@ async function start() {
     try {
         await writeFile(path)
         const races = await readFile(path)
+        console.log(races);
+        
         const res = await details()
         console.log(`=========== PIT STOP QUEUE ===========
            ${res}`)
