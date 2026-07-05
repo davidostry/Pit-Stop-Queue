@@ -1,9 +1,27 @@
-import {readFile} from "./services/serviceFile.js"
+import { writeFile, readFile } from "./services/serviceFile.js"
+import {details, searchCar} from "./services/serviceRaces.js"
 
-try{
-    console.log(await readFile());
-}
-catch(e){
-console.log("error", e);
+async function start() {
+
+    const path = "./data/races.json"
+
+    console.log(`Pit Stop Queue - Race Team Management System
+                Race engineer: Lets check the current queue status on the pit wall.`);
+
+
+    try {
+        await writeFile(path)
+        const races = await readFile(path)
+        const res = await details()
+        console.log(`=========== PIT STOP QUEUE ===========
+           ${res}`)
+    }
+
+    catch (e) {
+        console.log("error", e);
+
+    }
 
 }
+
+start()
